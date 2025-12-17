@@ -1,0 +1,17 @@
+# Created with Anim8or 1.00
+# Object "RockSpire2":
+
+newmtl RockSpire2
+Ka 0.2 0.2 0.2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ns 16.0
+
+# diffuse texture – filename must match exactly
+map_Kd RockSpires_Base_Diffuse.png
+
+# optional, if you want specular map and your shader/loader uses it:
+map_Ks RockSpires_Base_Specular.png
+
+# optional normal map – only if your shader supports it:
+map_Bump RockSpires_Base_Normal.png

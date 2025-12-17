@@ -110,13 +110,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)external\GLAD\;$(ProjectDir)\external\GLFW\include;$(ProjectDir)\external\Shaders and Models;$(ProjectDir)\external\glm/glm-1.0.2;$(ProjectDir)\external\stb</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)external\GLAD\;$(ProjectDir)\external\GLFW\include;$(ProjectDir)\external\Shaders and Models;$(ProjectDir)\external\glm/glm-1.0.2;$(ProjectDir)\external\stb;$(ProjectDir)external\irrKlang-master\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)external\glfw\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)external\glfw\lib;$(ProjectDir)external\irrKlang-master\lib\Winx64-visualStudio</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;assimp-vc143-mt.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -127,19 +127,21 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)external\GLAD\;$(ProjectDir)\external\GLFW\include;$(ProjectDir)\external\Shaders and Models;$(ProjectDir)\external\glm/glm-1.0.2;$(ProjectDir)\external\stb</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)external\GLAD\;$(ProjectDir)\external\GLFW\include;$(ProjectDir)\external\Shaders and Models;$(ProjectDir)\external\glm/glm-1.0.2;$(ProjectDir)\external\stb;$(ProjectDir)external\irrKlang-master\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)external\glfw\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)external\glfw\lib;$(ProjectDir)external\irrKlang-master\lib\Winx64-visualStudio</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;assimp-vc143-mt.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="external\GLAD\glad.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Physics.cpp" />
     <ClCompile Include="stb_image.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\GLAD\glad.h" />
@@ -148,12 +150,15 @@
     <ClInclude Include="external\Shaders and Models\model.h" />
     <ClInclude Include="external\Shaders and Models\shader.h" />
     <ClInclude Include="external\Shaders and Models\shader_m.h" />
+    <ClInclude Include="Physics.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="model_loading.frag" />
     <None Include="model_loading.vert" />
-    <None Include="test_triangle.frag" />
-    <None Include="test_triangle.vert" />
+    <None Include="shadow_depth.frag" />
+    <None Include="shadow_depth.vert" />
+    <None Include="Writeup.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

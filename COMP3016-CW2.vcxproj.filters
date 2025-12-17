@@ -27,6 +27,12 @@
     <ClCompile Include="stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\GLAD\glad.h">
@@ -47,19 +53,26 @@
     <ClInclude Include="external\Shaders and Models\mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="test_triangle.vert">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="test_triangle.frag">
-      <Filter>shaders</Filter>
-    </None>
     <None Include="model_loading.vert">
       <Filter>shaders</Filter>
     </None>
     <None Include="model_loading.frag">
       <Filter>shaders</Filter>
     </None>
+    <None Include="shadow_depth.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shadow_depth.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="Writeup.md" />
   </ItemGroup>
 </Project>
