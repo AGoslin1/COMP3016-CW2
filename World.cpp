@@ -173,7 +173,6 @@ void HandleQTEInput(World& world)
             world.qteOuterRadius = world.qteOuterMaxRadius;
             world.qteThisRoundHit = false;
 
-            std::cout << "QTE started\n";
         }
         return;
     }
@@ -188,7 +187,6 @@ void HandleQTEInput(World& world)
     {
         world.qteThisRoundHit = true;
         world.qteCurrentHits++;
-        std::cout << "QTE hit " << world.qteCurrentHits << "/" << world.qteTargetHits << "\n";
 
         if (world.qteCurrentHits >= world.qteTargetHits)
         {
@@ -199,11 +197,9 @@ void HandleQTEInput(World& world)
             {
                 world.starQTEAwarded = true;
                 world.starCount++;
-                std::cout << "QTE COMPLETED (8 hits)! +1 STAR (total: " << world.starCount << ")\n";
             }
             else
             {
-                std::cout << "QTE COMPLETED (8 hits, star already awarded)\n";
             }
         }
 
@@ -216,7 +212,6 @@ void HandleQTEInput(World& world)
     else
     {
         //reset whole minigame
-        std::cout << "QTE FAILED, reset\n";
         world.qteActive = false;
         world.qteVisible = false;
         world.qteCurrentHits = 0;
@@ -238,8 +233,6 @@ void HandleSkullModeInput(World& world)
     float dist = DistanceXZ(world.player.pos, world.skullSquarePos);
     if (dist <= startRange)
     {
-        std::cout << "Skull mode START (E pressed)\n";
-
         //full reset
         ResetSkullMode(world);
         world.skullModeActive = true;
@@ -323,7 +316,6 @@ unsigned int LoadTexture(const char* path)
 
     if (!data)
     {
-        std::cout << "FAILED TO LOAD TEXTURE: " << path << "\n";
         return 0;
     }
 
@@ -659,7 +651,6 @@ void UpdateWorld(World& world, float dt)
                 const char* footstepPath = footstepFiles[footstepIndex];
                 footstepIndex = (footstepIndex + 1) % 4;
 
-                std::cout << "FOOTSTEP (" << footstepPath << ")\n";
 
                 //ensure no overlapping instances
                 if (currentFootstep)
@@ -683,9 +674,6 @@ void UpdateWorld(World& world, float dt)
                     currentFootstep->setVolume(volume);
                     currentFootstep->setPan(0.0f);
 
-                    //debug: log final volume and pan
-                    std::cout << "Footstep vol=" << currentFootstep->getVolume()
-                        << " pan=" << currentFootstep->getPan() << "\n";
 
                     currentFootstep->setIsPaused(false);
                 }
@@ -710,7 +698,6 @@ void UpdateWorld(World& world, float dt)
             world.cucarachaSound->drop();
             world.cucarachaSound = nullptr;
             world.cucarachaTimer = 0.0f;
-            std::cout << "La Cucaracha stopped after 30 seconds.\n";
         }
     }
 
@@ -726,7 +713,6 @@ void UpdateWorld(World& world, float dt)
         if (t >= 1.0f && !world.qteThisRoundHit)
         {
             //time ran out
-            std::cout << "QTE timeout, reset\n";
             world.qteActive = false;
             world.qteVisible = false;
             world.qteCurrentHits = 0;
@@ -754,7 +740,6 @@ void UpdateWorld(World& world, float dt)
 
             world.starSkullAwarded = true;
             world.starCount++;
-            std::cout << "Skull mode SURVIVED 25s! +1 STAR (total: " << world.starCount << ")\n";
         }
 
         // Decrease spawn interval over time
@@ -785,7 +770,6 @@ void UpdateWorld(World& world, float dt)
             if (d <= (playerHitRadius + skullKillRadius))
             {
                 //player got hit fail, clear skulls, allow retry
-                std::cout << "Skull mode FAILED (hit by skull)\n";
 
                 world.skullModeActive = false;
                 world.skullModeFailed = true;
@@ -826,7 +810,6 @@ void UpdateWorld(World& world, float dt)
             world.cockroaches.push_back(inst);
         }
 
-        std::cout << "4 STARS REACHED! Summoning 8 dancing cockroaches around you\n";
 
         //start song for up to 30 seconds
         if (world.soundEngine)
@@ -848,11 +831,9 @@ void UpdateWorld(World& world, float dt)
             if (world.cucarachaSound)
             {
                 world.cucarachaTimer = 0.0f;
-                std::cout << "Playing La Cucaracha!\n";
             }
             else
             {
-                std::cout << "Failed to play La Cucaracha.mp3\n";
             }
         }
     }
