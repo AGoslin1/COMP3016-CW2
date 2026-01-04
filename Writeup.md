@@ -56,7 +56,7 @@ all libraries are permitted according to the module spec.
 
 ### 4.1 Core Loop
 
-The player starts in a **3D outdoor environment** containing:
+The player starts in a 3D outdoor environment** containing:
 
 - A large ball pit filled with many physics‑simulated balls.
 - A surrounding ring of boulders enclosing the space.
